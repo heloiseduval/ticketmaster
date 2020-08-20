@@ -7,7 +7,7 @@ import { TasksModule } from './tasks/tasks.module';
 import { SharedModule } from './shared/shared.module';
 import { TicketsModule } from './tickets/tickets.module';
 import {MembersModule} from './members/members.module';
-import {AppRoutingModule} from './app-routing.module';
+import { AppRoutingModule } from './app-routing.module';
 
 
 @NgModule({
