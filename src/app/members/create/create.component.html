@@ -1,0 +1,33 @@
+<form (ngSubmit)="onClickAdd()" [formGroup]="memberForm">
+  <h3>New Member</h3>
+
+
+  <mat-form-field appearance="fill">
+    <mat-label>Enter your first name</mat-label>
+    <input matInput placeholder="First Name" formControlName="firstName" required>
+    <mat-error *ngIf="memberForm.controls.firstName.hasError('required')">FirstName is required</mat-error>
+    <mat-error *ngIf="memberForm.controls.firstName.hasError('minlength')">FirstName is min 3</mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Enter your last name</mat-label>
+    <input matInput placeholder="Last Name" formControlName="lastName" required>
+    <mat-error *ngIf="memberForm.controls.lastName.hasError('required')">LastName is required</mat-error>
+    <mat-error *ngIf="memberForm.controls.lastName.hasError('minlength')">LastName is min 3</mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Select your role</mat-label>
+    <mat-select formControlName="role">
+      <mat-option *ngFor="let role of roleOptions " [value]="role">{{role}}</mat-option>
+    </mat-select>
+    <mat-error *ngIf="memberForm.controls.role.hasError('required')">Role is required</mat-error>
+  </mat-form-field>
+
+    <button [disabled]="memberForm.valid" mat-mini-fab color="primary" aria-label="plus one icon">
+      <mat-icon>add</mat-icon>
+    </button>
+
+  </form>
+
+  <mat-spinner *ngIf="memberForm.valid"></mat-spinner>

@@ -1,0 +1,16 @@
+<mat-spinner *ngIf="!members"></mat-spinner>
+
+<section fxLayout="row wrap" fxFlex="90" fxFlexOffset="5" fxFlex.gt-md="60">
+
+<div *ngIf="members" class="mat-display-2" fxFlex="100">
+     <br />
+     {{!members.length ? 'There is no Member' : 'List of Members:'}}
+
+     <br>
+<a *ngFor="let member of members; let i = index" routerLink="/members/{{member.id}}" class="membre">
+     {{member.firstname}} {{member.lastname}} {{member.role}} 
+</a>
+
+
+</div> 
+</section>
